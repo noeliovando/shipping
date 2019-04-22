@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../environments/environment';
+import { Global } from './global';
 
 interface PayUrl {
     redirect_url: string;
@@ -19,22 +19,24 @@ interface PaymentResponse {
     providedIn: 'root'
 })
 export class PaymentService {
-
-    constructor(private http: HttpClient) { }
+    public url: string;
+    constructor(private http: HttpClient) {
+        this.url = Global.url;
+    }
     buyPackage(amount: string, currency: string) {
-        return this.http.post<PayUrl>(environment.API_URL + '/paypal/make/payment?sum=' + amount + '&currency=' + currency, {});
+        return this.http.post<PayUrl>(this.url + '/paypal/make/payment?sum=' + amount + '&currency=' + currency, {});
     }
     makePayment(paymentId: string, PayerID: string) {
         // tslint:disable-next-line:max-line-length
-        return this.http.post<PaymentResponse>(environment.API_URL + '/paypal/complete/payment?paymentId=' + paymentId + '&PayerID=' + PayerID, {});
+        return this.http.post<PaymentResponse>(this.url + '/paypal/complete/payment?paymentId=' + paymentId + '&PayerID=' + PayerID, {});
     }
     getPackageDetails(packageid: string) {
-        return this.http.get(environment.API_URL + '/packages/get/' + packageid);
+        return this.http.get(this.url + '/packages/get/' + packageid);
     }
     savePaymentDetails(email: string, packageid: string, paymentdetails: any) {
-        return this.http.post(environment.API_URL + '/users/user/purchage/' + packageid + '/' + email, paymentdetails);
+        return this.http.post(this.url + '/users/user/purchage/' + packageid + '/' + email, paymentdetails);
     }
     payupayment(paymentPayload: any){
-    return this.http.post<any>(environment.API_URL+ '/payu/payment-details', paymentPayload);
+    return this.http.post<any>(this.url + '/payu/payment-details', paymentPayload);
     }
 }
