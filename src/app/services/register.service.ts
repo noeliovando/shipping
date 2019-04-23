@@ -14,23 +14,26 @@ interface MyData {
 export class RegisterService {
     public url: string;
     private registerStatus = false;
-    constructor(private http: HttpClient) {
+    constructor(
+        private http: HttpClient
+    ) {
         this.url = Global.url;
     }
 
     setRegisterStatus(value: boolean) {
         this.registerStatus = value;
     }
-    get isRegistered() {
+    getisRegistered() {
         return this.registerStatus;
     }
     registerUser(fname, lname, email, password) {
         const encodedName = encodeURIComponent(password);
-        const apiurl = this.url + '/users/user/register/' + fname + '/' + lname + '/' + encodedName + '/' + email;
+        const apiurl = this.url + 'users/user/register/' + fname + '/' + lname + '/' + encodedName + '/' + email;
         return this.http.get<MyData>(apiurl);
     }
     verifyOtp(otp) {
         const apiurl = this.url + '/users/user/confirm/' + otp;
-        return this.http.get<MyData>(apiurl);
+        // return this.http.get<MyData>(apiurl);
+        return this.http.get(apiurl);
     }
 }

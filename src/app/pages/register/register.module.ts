@@ -13,7 +13,7 @@ export const routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     SharedModule
   ],
