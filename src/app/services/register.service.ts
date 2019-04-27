@@ -32,8 +32,7 @@ export class RegisterService {
         return this.http.get<MyData>(apiurl);
     }
     verifyOtp(otp) {
-        const apiurl = this.url + '/users/user/confirm/' + otp;
-        // return this.http.get<MyData>(apiurl);
-        return this.http.get(apiurl);
+        const apiurl = this.url + 'users/user/confirm/' + otp;
+        return this.http.get<MyData>(apiurl);
     }
 }

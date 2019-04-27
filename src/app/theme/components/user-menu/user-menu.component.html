@@ -7,9 +7,9 @@
         <mat-card fxLayout="row" fxLayoutAlign="space-around center" class="user-info p-0">
             <img [src]="userImage" alt="user-image">
             <div fxLayout="column" fxLayoutAlign="center center">
-                <h2>Emilio Verdines</h2>
-                <h3 class="secondary-text-color">Web developer</h3>
-                <p class="secondary-text-color">Member since May. 2016</p>
+                <h2>{{user.fname}} {{user.lname}}</h2>
+                <h3 class="secondary-text-color">{{user.authorities[0].authority}}</h3>
+                <p class="secondary-text-color">{{user.confirmedDateTime}}</p>
             </div>
         </mat-card>  
         <mat-divider></mat-divider>

@@ -10,6 +10,7 @@ import { PipesModule } from '../../theme/pipes/pipes.module';
 import { UsersComponent } from './users.component';
 import { UsersData } from './users.data';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
+import { UsersService } from './users.service';
 
 export const routes = [
   { path: '', component: UsersComponent, pathMatch: 'full' }
@@ -17,15 +18,16 @@ export const routes = [
 
 @NgModule({
   imports: [
-    CommonModule,
-    HttpClientModule,
-    RouterModule.forChild(routes),
-    FormsModule,
-    ReactiveFormsModule,
-    InMemoryWebApiModule.forRoot(UsersData, { delay: 500 }),
-    NgxPaginationModule,
-    SharedModule,
-    PipesModule    
+      CommonModule,
+      HttpClientModule,
+      RouterModule.forChild(routes),
+      FormsModule,
+      ReactiveFormsModule,
+      InMemoryWebApiModule.forRoot(UsersData, { delay: 500 }),
+      NgxPaginationModule,
+      SharedModule,
+      PipesModule,
+      UsersService
   ],
   declarations: [
     UsersComponent,

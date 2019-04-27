@@ -6,14 +6,16 @@ import { BlankComponent } from './pages/blank/blank.component';
 import { SearchComponent } from './pages/search/search.component';
 import { NotFoundComponent } from './pages/errors/not-found/not-found.component';
 import { ErrorComponent } from './pages/errors/error/error.component';
+import { UnauthorisedComponent } from './pages/errors/unauthorised/unauthorised.component';
+import { OtpverifyComponent } from './otpverify/otpverify.component';
 
 export const routes: Routes = [
-    { 
-        path: '', 
+    {
+        path: '',
         component: PagesComponent, children: [
             { path: '', loadChildren: './pages/dashboard/dashboard.module#DashboardModule', data: { breadcrumb: 'Dashboard' } },
             { path: 'users', loadChildren: './pages/users/users.module#UsersModule', data: { breadcrumb: 'Users' } },
-            { path: 'dynamic-menu', loadChildren: './pages/dynamic-menu/dynamic-menu.module#DynamicMenuModule', data: { breadcrumb: 'Dynamic Menu' }  },          
+            { path: 'dynamic-menu', loadChildren: './pages/dynamic-menu/dynamic-menu.module#DynamicMenuModule', data: { breadcrumb: 'Dynamic Menu' }  },
             { path: 'ui', loadChildren: './pages/ui/ui.module#UiModule', data: { breadcrumb: 'UI' } },
             { path: 'mailbox', loadChildren: './pages/mailbox/mailbox.module#MailboxModule', data: { breadcrumb: 'Mailbox' } },
             { path: 'chat', loadChildren: './pages/chat/chat.module#ChatModule', data: { breadcrumb: 'Chat' } },
@@ -33,6 +35,8 @@ export const routes: Routes = [
     { path: 'login', loadChildren: './pages/login/login.module#LoginModule' },
     { path: 'register', loadChildren: './pages/register/register.module#RegisterModule' },
     { path: 'error', component: ErrorComponent, data: { breadcrumb: 'Error' } },
+    { path: 'unauthorised', component: UnauthorisedComponent, data: { breadcrumb: 'Error' } },
+    { path: 'otpverify', component: OtpverifyComponent },
     { path: '**', component: NotFoundComponent }
 ];
 

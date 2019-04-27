@@ -42,8 +42,8 @@ export const routes = [
     FeaturesComponent,
     ContactUsComponent
   ],
-  providers: [ 
-    LandingService 
-  ] 
+  providers: [
+    LandingService
+  ]
 })
 export class LandingModule { }

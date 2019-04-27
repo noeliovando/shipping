@@ -37,7 +37,7 @@ export class AuthService {
         return sessionStorage.getItem('access_token') !== null;
     }
     getUserDetails(username: string, password: string) {
-        return this.http.post<MyData>(this.url + '/users/user/login', { username, password }).pipe(tap(res => {
+        return this.http.post<MyData>(this.url + 'users/user/login', { username, password }).pipe(tap(res => {
             if (res.success) {
                 sessionStorage.setItem('access_token', res.token);
                 sessionStorage.setItem('email', res.tokenkey);
@@ -48,14 +48,14 @@ export class AuthService {
         }));
     }
     passwordTokengen(email: string) {
-        return this.http.get<Message>(this.url + '/users/user/forget/' + email);
+        return this.http.get<Message>(this.url + 'users/user/forget/' + email);
     }
     forgetPassword(password: string, token: string) {
         const encodedName = encodeURIComponent(password);
         console.log('encodedName--' + encodedName);
-        return this.http.get<Message>(this.url + '/users/user/changepassword/' + encodedName + '/' + token);
+        return this.http.get<Message>(this.url + 'users/user/changepassword/' + encodedName + '/' + token);
     }
     checkPackageValidity(email: string) {
-        return this.http.get<Message>(this.url + '/users/user/package/valid/' + email);
+        return this.http.get<Message>(this.url + 'users/user/package/valid/' + email);
     }
 }

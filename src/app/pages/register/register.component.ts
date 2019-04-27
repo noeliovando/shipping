@@ -1,31 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { emailValidator, matchingPasswords } from '../../theme/utils/app-validators';
 import { AppSettings } from '../../app.settings';
 import { Settings } from '../../app.settings.model';
 import { RegisterService } from '../../services/register.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html',
-  providers: [RegisterService]
+  templateUrl: './register.component.html'
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   public form: FormGroup;
   public settings: Settings;
-  public status: string;
-  public message: string;
-  firstname = new FormControl('');
-  surname = new FormControl('');
-  password = new FormControl('');
-  email = new FormControl('');
 
   constructor(
       public appSettings: AppSettings,
       private _registerservice: RegisterService,
-      public fb: FormBuilder, public router: Router
-  ) {
+      private _authservice: AuthService,
+      public fb: FormBuilder, public router: Router) {
     this.settings = this.appSettings.settings;
     this.form = this.fb.group({
       'firstname': [null, Validators.compose([Validators.required, Validators.minLength(3)])],
@@ -36,20 +30,31 @@ export class RegisterComponent {
     }, {validator: matchingPasswords('password', 'confirmPassword')});
   }
 
-  public onSubmit(event): void {
-    // if (this.form.valid) {
-      // this.router.navigate(['/login']);
-      this._registerservice.registerUser(this.firstname, this.surname, this.email, this.password).subscribe(data => {
-        // event.preventDefault();
-        // const target = event.target;
-        if (data.success) {
-          this.status = 'success';
-          this.router.navigate(['']);
-        } else {
-          this.status = 'failed'
-          this.message = data.message;
-        }
-      });
-    // }
+  public onSubmit(): void {
+    if (this.form.valid) {
+      this.registerUser();
+    }
+  }
+  registerUser() {
+    const firstname = this.form.get('firstname').value;
+    const surname = this.form.get('surname').value;
+    const email = this.form.get('email').value;
+    const password = this.form.get('password').value;
+    this._registerservice.registerUser(firstname, surname, email, password).subscribe(data => {
+      if (data.success) {
+        alert(data.message + '. Plese check your email.');
+        this.router.navigate(['']);
+      } else {
+        alert(data.message);
+      }
+    });
+  }
+  ngOnInit() {
+    if (this._authservice.isLoggined) {
+      this.router.navigate(['unauthorisedaccess']);
+    }
+  }
+  ngAfterViewInit() {
+    this.settings.loadingSpinner = false;
   }
 }

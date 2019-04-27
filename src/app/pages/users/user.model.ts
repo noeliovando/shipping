@@ -1,3 +1,6 @@
+import { Rol } from './rol.model';
+import { Authority } from './authority.model';
+
 export class User {
   id: number;
   username: string;
@@ -41,3 +44,45 @@ export class UserSettings {
   registrationDate: Date;
   joinedDate: Date;
 }
+
+export class UserSession {
+  username: string;
+}
+
+export class UserAllInfo {
+  userid: number;
+  fname: string;
+  lname: string;
+  email: string;
+  password: string;
+  token: string;
+  status: string;
+  expiredDateTime: string;
+  issuedDateTime: string;
+  confirmedDateTime: string;
+  prtoken: string;
+  prstatus: string;
+  prexpiredDateTime: string;
+  prissuedDateTime: string;
+  prconfirmedDateTime: string;
+  packagePurchased: string;
+  paymentid: string;
+  transactionid: string;
+  amount: string;
+  currency: string;
+  purchasedate: string;
+  pkgexpirydate: string;
+  packageid: string;
+  payeremail: string;
+  paymentstatus: string;
+  packageexpired: string;
+  roles: Rol[];
+  username: string;
+  enabled: boolean;
+  active: boolean;
+  authorities: Authority[];
+  accountNonExpired: boolean;
+  accountNonLocked: boolean;
+  credentialsNonExpired: boolean;
+}
+

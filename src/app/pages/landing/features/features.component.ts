@@ -7,8 +7,8 @@ import { LandingService } from '../landing.service';
   styleUrls: ['./features.component.scss']
 })
 export class FeaturesComponent implements OnInit {
-  public features; 
-  constructor(private landingService:LandingService) { }
+  public features;
+  constructor(private landingService: LandingService) { }
 
   ngOnInit() {
     this.features = this.landingService.getFeatures();

@@ -38,6 +38,8 @@ import { ApplicationsComponent } from './theme/components/applications/applicati
 import { MessagesComponent } from './theme/components/messages/messages.component';
 import { UserMenuComponent } from './theme/components/user-menu/user-menu.component';
 import { FavoritesComponent } from './theme/components/favorites/favorites.component';
+import {UnauthorisedComponent} from './pages/errors/unauthorised/unauthorised.component';
+import {OtpverifyComponent} from './otpverify/otpverify.component';
 
 
 @NgModule({
@@ -63,6 +65,8 @@ import { FavoritesComponent } from './theme/components/favorites/favorites.compo
     SearchComponent,
     NotFoundComponent,
     ErrorComponent,
+    UnauthorisedComponent,
+    OtpverifyComponent,
     TopInfoContentComponent,
     SidenavComponent,
     VerticalMenuComponent,

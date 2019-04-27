@@ -1,8 +1,17 @@
 import { Injectable } from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+// tslint:disable-next-line:import-spacing
+import { Global} from '../../services/global';
+import { Observable } from 'rxjs/index';
 
 @Injectable()
 export class LandingService {
-    constructor() { }
+    public url: string;
+    constructor(
+        private http: HttpClient
+    ) {
+        this.url = Global.url;
+    }
     
     getMenuItems(){
         return [ 'home', 'features', 'works', 'services', 'testimonials',  'pricing', 'contact' ];
@@ -143,5 +152,9 @@ export class LandingService {
             }
         ];
     }
-    
-} 
+
+    getPackages(): Observable<any>  {
+        const headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this.http.get(this.url + 'packages/all', { headers: headers });
+    }
+}
