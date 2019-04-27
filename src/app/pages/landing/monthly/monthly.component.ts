@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Package } from '../pricing/pricing.model';
 import {LandingService } from '../landing.service';
 
-
 @Component({
   selector: 'app-monthly',
   templateUrl: './monthly.component.html',

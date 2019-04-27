@@ -14,7 +14,7 @@ export class AppSettings {
         true,       // sidenavIsPinned
         'vertical', // horizontal , vertical
         'default',  // default, compact, mini
-        'gray-light',   // indigo-light, teal-light, red-light, gray-light, blue-dark, green-dark, pink-dark, gray-dark
+        'indigo-light',   // indigo-light, teal-light, red-light, gray-light, blue-dark, green-dark, pink-dark, gray-dark
         false       // true = rtl, false = ltr
     );
 }
