@@ -76,7 +76,7 @@ import {OtpverifyComponent} from './otpverify/otpverify.component';
     ApplicationsComponent,
     MessagesComponent,
     UserMenuComponent,
-    FavoritesComponent
+    FavoritesComponent,
   ],
   entryComponents: [
     VerticalMenuComponent

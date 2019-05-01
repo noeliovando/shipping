@@ -1,0 +1,80 @@
+<div fxlayout="row" class="mt-2 pt-3" fxflexalign="center center">
+    <div fxLayout="column" fxLayoutAlign="center center" class="title-section p-2 mb-2">
+        <mat-icon class="mat-icon-xlg accent-color">lock</mat-icon><h1>Secure Chechkout</h1>
+        <p class="secondary-text-color">Please verify the information and select one payment method</p>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center">
+        <div fxFlex="100">
+            <div fxLayout="row" fxLayoutAlign="center center">
+                <div fxFlex="100" fxFlex.gt-md="25" fxFlex.md="33.3" fxFlex.sm="50" class="p-0">
+                    <mat-card fxLayout="column" fxLayoutAlign="center center" class="w-100">
+                        <div fxLayout="row wrap">
+                            <h2 class="block-title my-3" fxlayout="column">Billimg Details</h2>
+                        </div>
+                        <p class="secondary-text-color">
+                            MANOJ SINGH<br>
+                            Street 6 Discovery Gardens Dubai<br>
+                            Dubai, Other, 17000<br>
+                            United Arab Emirates<br>
+                        </p>
+                        <button mat-mini-fab color="primary" class="m-1 o-hidden" fxlayout="column">
+                            <mat-icon class="mat-icon-ss" color="white">create</mat-icon>
+                        </button>
+                    </mat-card>
+                </div>
+                <div fxFlex="100" fxFlex.gt-md="25" fxFlex.md="33.3" fxFlex.sm="50" class="p-0">
+                    <mat-card fxLayout="column" fxLayoutAlign="center center" class="w-100">
+                        <div fxLayout="row wrap">
+                            <h2 class="block-title my-3" fxlayout="column">Order Sumary</h2>
+                        </div>
+                        <div fxLayout="column" class="p-2">
+                            <div class="p-2">
+                                <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
+                                    <ng-container matColumnDef="position">
+                                        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                                        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+                                    </ng-container>
+                                    <ng-container matColumnDef="name">
+                                        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                                        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                                    </ng-container>
+                                    <ng-container matColumnDef="weight">
+                                        <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+                                        <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+                                    </ng-container>
+                                    <ng-container matColumnDef="symbol">
+                                        <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+                                        <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+                                    </ng-container>
+                                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                                </mat-table>
+                            </div>
+                        </div>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div fxlayout="row" class="mt-2 pt-3" fxflexalign="center center">
+    <div fxLayout="column" fxLayoutAlign="center center" class="title-section p-2 mb-2">
+        <mat-icon class="mat-icon-xlg accent-color">payment</mat-icon><h1>Select a Payment methot</h1>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="center center">
+        <div fxFlex="50" fxFlex.xl="16.6" fxFlex.lg="16.6" fxFlex.md="33.3" fxFlex.sm="33.3" class="p-2">
+            <mat-card class="gradient-indigo tile p-2">
+                <mat-icon>monetization_on</mat-icon>
+                <h2>Paypal</h2>
+                <p>Paypal</p>
+            </mat-card>
+        </div>
+        <div fxFlex="50" fxFlex.xl="16.6" fxFlex.lg="16.6" fxFlex.md="33.3" fxFlex.sm="33.3" class="p-2">
+            <mat-card class="gradient-red tile p-2">
+                <mat-icon>monetization_on</mat-icon>
+                <h2>PayU</h2>
+                <p>PayU</p>
+            </mat-card>
+        </div>
+    </div>
+</div>

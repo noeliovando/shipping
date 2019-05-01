@@ -13,7 +13,7 @@ export class BasicComponent {
   public dataSource: any;
   public settings: Settings;
   constructor(public appSettings:AppSettings, private tablesService:TablesService) {
-    this.settings = this.appSettings.settings; 
+    this.settings = this.appSettings.settings;
     this.dataSource = new MatTableDataSource<Element>(this.tablesService.getData());
   }
 }

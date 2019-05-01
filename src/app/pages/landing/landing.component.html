@@ -1,4 +1,4 @@
-<mat-toolbar class="landing-toolbar mat-elevation-z4">
+<mat-toolbar class="landing-toolbar mat-elevation-z4" color="accent">
     <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex>
         <div fxLayout="row" fxLayoutAlign="center center">               
             <a routerLink="/" fxLayout="row" fxLayoutAlign="start center" class="logo">
@@ -13,7 +13,7 @@
             <button mat-icon-button (click)="sidenav.toggle()" fxHide="false" fxHide.gt-sm class="mx-3">
                 <mat-icon>menu</mat-icon>
             </button> 
-            <a mat-raised-button color="accent" href="https://themeforest.net/item/annular-angular-material-design-admin-template/22537089" target="blank">Buy Now</a>                             
+            <a mat-raised-button color="primary" routerLink="/register" target="blank">Suscription</a>
         </div>
     </div>
 </mat-toolbar> 
@@ -25,8 +25,8 @@
     <mat-drawer-content> 
         <app-content-header id="home"
             [icon]="'important_devices'" 
-            [title]="'Angular Material Design Admin Template'"
-            [desc]="'Annular implements the official Angular Material Design components and built with Angular CLI. No Bootstrap!, No jQuery! and Only TypeScript! Start creating your app with Annular template, 8 layouts, 8 color styles, 35+ pages'" 
+            [title]="'Shipping Page for Minoj Sigh'"
+            [desc]="'This is the first version of the web page for shipping service'"
             [hideBreadcrumb]="true"
             [hasBgImage]="true" 
             [class]="'py-5 px-2'"></app-content-header>        

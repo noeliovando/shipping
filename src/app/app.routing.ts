@@ -8,6 +8,7 @@ import { NotFoundComponent } from './pages/errors/not-found/not-found.component'
 import { ErrorComponent } from './pages/errors/error/error.component';
 import { UnauthorisedComponent } from './pages/errors/unauthorised/unauthorised.component';
 import { OtpverifyComponent } from './otpverify/otpverify.component';
+import {PaymentComponent} from './payment/payment.component';
 
 export const routes: Routes = [
     {
@@ -37,6 +38,7 @@ export const routes: Routes = [
     { path: 'error', component: ErrorComponent, data: { breadcrumb: 'Error' } },
     { path: 'unauthorised', component: UnauthorisedComponent, data: { breadcrumb: 'Error' } },
     { path: 'otpverify', component: OtpverifyComponent },
+    { path: 'payment', loadChildren: './payment/payment.module#PaymentModule' },
     { path: '**', component: NotFoundComponent }
 ];
 

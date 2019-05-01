@@ -3,7 +3,7 @@
         <mat-card class="pricing-card text-center p-0">
             <h2 class="pricing-title my-3">{{package.shortname}}</h2>
             <div class="bg-accent pricing-header p-3" fxLayout="column" fxLayoutAlign="center center">
-                <h1>$ {{package.baseprice}}<small> /mo</small></h1>
+                <h1>$ {{package.baseprice}}<small> /year</small></h1>
                 <p class="desc mb-2">{{package.description}}</p>
             </div>
             <div class="secondary-text-color p-3">
@@ -12,7 +12,7 @@
                 <div *ngFor="let feature of package.features">
                     <p class="py-2">{{feature.feature}}</p>
                 </div>
-                <button mat-raised-button color="primary" class="mt-3">Buy now</button>
+                <button mat-raised-button color="accent" class="mt-3">Buy now</button>
             </div>
         </mat-card>
     </div>
