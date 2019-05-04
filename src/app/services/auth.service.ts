@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Global } from './global';
 import { Observable } from 'rxjs/index';
 import { tap } from 'rxjs/operators';
+// import { JwtHelperService } from '@auth0/angular-jwt';
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -29,13 +30,21 @@ export class AuthService {
     // tslint:disable-next-line:variable-name
     _token: any;
     // private _headers = new HttpHeaders().set('Content-Type', 'application/json');
-    constructor(private http: HttpClient) {
+    constructor(
+        private http: HttpClient,
+    ) {
         this.url = Global.url;
     }
 
     get isLoggined() {
         return sessionStorage.getItem('access_token') !== null;
     }
+    /*public isAuthenticated(): boolean {
+        const token = sessionStorage.getItem('token');
+        // Check whether the token is expired and return
+        // true or false
+        return !this.jwtHelper.isTokenExpired(token);
+    }*/
     getUserDetails(username: string, password: string) {
         return this.http.post<MyData>(this.url + 'users/user/login', { username, password }).pipe(tap(res => {
             if (res.success) {

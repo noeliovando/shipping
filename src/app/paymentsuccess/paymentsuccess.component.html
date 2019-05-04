@@ -1,0 +1,78 @@
+<section class="hero-area text-center">
+    <!-- Container Start -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h2>Payment Successful</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- offer 01 -->
+            <div class="col-lg-12">
+                <div class="trending-ads-slide">
+                    <div class="col-sm-12 col-lg-3">
+                        <h5> Payment Id :</h5>
+                    </div>
+                    <div class="col-sm-12 col-lg-4">
+                        <h5>{{purchasedData.paymentid}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="trending-ads-slide">
+                    <div class="col-sm-12 col-lg-3">
+                        <h5> Transaction Id :</h5>
+                    </div>
+                    <div class="col-sm-12 col-lg-4">
+                        <h5>{{purchasedData.transactionid}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="trending-ads-slide">
+                    <div class="col-sm-12 col-lg-3">
+                        <h5> Amount :</h5>
+                    </div>
+                    <div class="col-sm-12 col-lg-4">
+                        <h5>{{purchasedData.currency}} &nbsp; {{purchasedData.amount}}</h5>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="trending-ads-slide">
+                        <div class="col-sm-12 col-lg-3">
+                            <h5> Transaction Date :</h5>
+                        </div>
+                        <div class="col-sm-12 col-lg-4">
+                            <h5>{{purchasedData.purchasedate}}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="trending-ads-slide">
+                        <div class="col-sm-12 col-lg-3">
+                            <h5> Payment Status :</h5>
+                        </div>
+                        <div class="col-sm-12 col-lg-4">
+                            <h5>{{purchasedData.paymentstatus}}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="trending-ads-slide">
+                        <div class="col-sm-12 col-lg-3">
+                        </div>
+                        <div class="col-sm-12 col-lg-4">
+                            <button type="submit" class="d-block py-3 px-5 bg-primary text-white border-0 rounded font-weight-bold mt-3"
+                                id="btncheckout" routerLink="">Done</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Container End -->
+</section>

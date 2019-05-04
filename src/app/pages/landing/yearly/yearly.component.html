@@ -12,7 +12,7 @@
                 <div *ngFor="let feature of package.features">
                     <p class="py-2">{{feature.feature}}</p>
                 </div>
-                <button mat-raised-button color="accent" class="mt-3">Buy now</button>
+                <button mat-raised-button color="accent" class="mt-3" (click)="onSelect(package.id)">Buy now</button>
             </div>
         </mat-card>
     </div>

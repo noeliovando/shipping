@@ -9,6 +9,8 @@ import { ErrorComponent } from './pages/errors/error/error.component';
 import { UnauthorisedComponent } from './pages/errors/unauthorised/unauthorised.component';
 import { OtpverifyComponent } from './otpverify/otpverify.component';
 import {PaymentComponent} from './payment/payment.component';
+import { MakepaymentComponent} from './makepayment/makepayment.component';
+import {PurchaseinformationComponent} from './purchaseinformation/purchaseinformation.component';
 
 export const routes: Routes = [
     {
@@ -39,6 +41,8 @@ export const routes: Routes = [
     { path: 'unauthorised', component: UnauthorisedComponent, data: { breadcrumb: 'Error' } },
     { path: 'otpverify', component: OtpverifyComponent },
     { path: 'payment', loadChildren: './payment/payment.module#PaymentModule' },
+    { path: 'makepayment', component: MakepaymentComponent },
+    { path: 'purchaseinformation', component: PurchaseinformationComponent },
     { path: '**', component: NotFoundComponent }
 ];
 

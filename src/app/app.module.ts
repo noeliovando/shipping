@@ -10,6 +10,9 @@ import { AgmCoreModule } from '@agm/core';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { MakepaymentComponent } from './makepayment/makepayment.component';
+import { PaymentsuccessComponent } from './paymentsuccess/paymentsuccess.component';
+import { PaymentcancelComponent } from './paymentcancel/paymentcancel.component';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true,
   suppressScrollX: true
@@ -40,6 +43,7 @@ import { UserMenuComponent } from './theme/components/user-menu/user-menu.compon
 import { FavoritesComponent } from './theme/components/favorites/favorites.component';
 import {UnauthorisedComponent} from './pages/errors/unauthorised/unauthorised.component';
 import {OtpverifyComponent} from './otpverify/otpverify.component';
+import { PurchaseinformationComponent } from './purchaseinformation/purchaseinformation.component';
 
 
 @NgModule({
@@ -77,6 +81,10 @@ import {OtpverifyComponent} from './otpverify/otpverify.component';
     MessagesComponent,
     UserMenuComponent,
     FavoritesComponent,
+    MakepaymentComponent,
+    PaymentsuccessComponent,
+    PaymentcancelComponent,
+    PurchaseinformationComponent,
   ],
   entryComponents: [
     VerticalMenuComponent
