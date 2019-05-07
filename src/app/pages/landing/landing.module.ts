@@ -16,6 +16,7 @@ import { OurServicesComponent } from './our-services/our-services.component';
 import { OurWorksComponent } from './our-works/our-works.component';
 import { FeaturesComponent } from './features/features.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import {UserMenuComponent} from './user-menu/user-menu.component';
 
 export const routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' }
@@ -40,7 +41,8 @@ export const routes = [
     OurServicesComponent,
     OurWorksComponent,
     FeaturesComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    UserMenuComponent
   ],
   providers: [
     LandingService

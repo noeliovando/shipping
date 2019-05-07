@@ -14,9 +14,9 @@ export class YearlyComponent implements OnInit {
   public  packages: Package[];
 
   constructor(
-      private _landingService: LandingService,
-      private auth: AuthService,
-      private route: Router
+      private _landingservice: LandingService,
+      private _authservice: AuthService,
+      private router: Router
   ) { }
 
   ngOnInit() {
@@ -24,7 +24,7 @@ export class YearlyComponent implements OnInit {
   }
 
   getPackages() {
-    this._landingService.getPackages().subscribe(
+    this._landingservice.getPackages().subscribe(
         response => {
           if (response) {
             this.packages = response;
@@ -37,16 +37,16 @@ export class YearlyComponent implements OnInit {
     );
   }
   onSelect(packageid) {
-      if (this.auth.isLoggined) {
+      if (this._authservice.isLoggined) {
           if (sessionStorage.getItem('isPurchased') === 'false') {
               sessionStorage.setItem('packageid', packageid);
               sessionStorage.setItem('paymentstarted', 'true');
-              this.route.navigate(['choosepayment']);
+              this.router.navigate(['payment']);
           } else {
               alert('You have already purchased Package');
           }
       } else {
-          this.route.navigate(['login']);
+          this.router.navigate(['login']);
       }
 
   }

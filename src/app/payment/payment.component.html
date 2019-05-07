@@ -1,50 +1,39 @@
 <div fxlayout="row" class="mt-2 pt-3" fxflexalign="center center">
     <div fxLayout="column" fxLayoutAlign="center center" class="title-section p-2 mb-2">
-        <mat-icon class="mat-icon-xlg accent-color">lock</mat-icon><h1>Secure Chechkout</h1>
+        <mat-icon class="mat-icon-xlg accent-color">shopping_cart</mat-icon><h1>Secure Checkout</h1>
         <p class="secondary-text-color">Please verify the information and select one payment method</p>
     </div>
-    <div fxLayout="row" fxLayoutAlign="center center">
+    <div fxLayout="row" fxLayoutAlign="center stretch">
         <div fxFlex="100">
-            <div fxLayout="row" fxLayoutAlign="center center">
-                <div fxFlex="100" fxFlex.gt-md="25" fxFlex.md="33.3" fxFlex.sm="50" class="p-0">
-                    <mat-card fxLayout="column" fxLayoutAlign="center center" class="w-100">
-                        <div fxLayout="row wrap">
-                            <h2 class="block-title my-3" fxlayout="column">Billing Details</h2>
-                        </div>
-                        <p class="secondary-text-color">
-                            MANOJ SINGH<br>
-                            Street 6 Discovery Gardens Dubai<br>
-                            Dubai, Other, 17000<br>
-                            United Arab Emirates<br>
-                        </p>
+            <div fxLayout="row" fxLayoutAlign="center stretch">
+                <div fxFlex="100" fxFlex.gt-md="25">
+                    <mat-card fxFlex=100%>
+                        <mat-card-header fxLayoutAlign="center">
+                            <mat-card-subtitle><h2>Billing Adress</h2></mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content fxLayout="column" fxLayoutAlign="center">
+                            <mat-form-field>
+                                <textarea matInput placeholder="Billing Adress"></textarea>
+                            </mat-form-field>
+                        </mat-card-content>
                     </mat-card>
-
                 </div>
-                <div fxFlex="100" fxFlex.gt-md="25" fxFlex.md="33.3" fxFlex.sm="50" class="p-0">
-                    <div fxLayout="column" class="p-2">
-                        <div class="p-2">
-                            <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
-                                <ng-container matColumnDef="position">
-                                    <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-                                    <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-                                </ng-container>
-                                <ng-container matColumnDef="name">
-                                    <mat-header-cell *matHeaderCellDef> Product </mat-header-cell>
-                                    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-                                </ng-container>
-                                <ng-container matColumnDef="weight">
-                                    <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
-                                    <mat-cell *matCellDef="let element"> ${{element.weight}} </mat-cell>
-                                </ng-container>
-                                <ng-container matColumnDef="symbol">
-                                    <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
-                                    <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
-                                </ng-container>
-                                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-                            </mat-table>
-                        </div>
-                    </div>
+                <div fxFlex="100" fxFlex.gt-md="25">
+                    <mat-card *ngIf="package">
+                        <mat-card-header fxFlexAlign="center center">
+                            <mat-card-subtitle><h2>Buying {{package.shortname}} Package</h2></mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content fxFlexAlign="center center">
+                            <h4>Features included</h4>
+                            <mat-divider></mat-divider>
+                            <div *ngFor="let feature of package.features">
+                                <p><mat-icon class="mat-icon-sm" color="primary">done</mat-icon>  {{feature.feature}}</p>
+                            </div>
+                            <mat-divider></mat-divider>
+                            <p> <br></p>
+                            <strong>Total Billied  ${{package.baseprice}}</strong>
+                        </mat-card-content>
+                    </mat-card>
                 </div>
             </div>
         </div>
@@ -70,6 +59,13 @@
                 <mat-icon>monetization_on</mat-icon>
                 <img src="../../assets/img/app/payu-logo.png" width="100"/>
             </mat-card>
+        </div>
+    </div>
+</div>
+<div fxLayout="row" fxLayoutAlign="center center">
+    <div fxFlex="100">
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <button id="btncheckout" mat-raised-button color="accent" class="mt-3" (click)="onSelect('checkout')">Checkout</button>
         </div>
     </div>
 </div>

@@ -1,13 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-// tslint:disable-next-line:import-spacing
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Global } from './global';
-import { Observable } from 'rxjs/index';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-// import { JwtHelperService } from '@auth0/angular-jwt';
-const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+import { UserAllInfo } from '../pages/users/user.model';
 interface MyData {
     tokenkey: string;
     token: string;
@@ -25,26 +21,16 @@ interface Message {
 })
 export class AuthService {
     public url: string;
-
-    // private loggedInStatus = JSON.parse(localStorage.getItem('access_details') || 'false');
-    // tslint:disable-next-line:variable-name
-    _token: any;
-    // private _headers = new HttpHeaders().set('Content-Type', 'application/json');
+    private currentUserSubject: BehaviorSubject<UserAllInfo>;
+    public currentUser: Observable<UserAllInfo>;
     constructor(
         private http: HttpClient,
     ) {
         this.url = Global.url;
     }
-
     get isLoggined() {
         return sessionStorage.getItem('access_token') !== null;
     }
-    /*public isAuthenticated(): boolean {
-        const token = sessionStorage.getItem('token');
-        // Check whether the token is expired and return
-        // true or false
-        return !this.jwtHelper.isTokenExpired(token);
-    }*/
     getUserDetails(username: string, password: string) {
         return this.http.post<MyData>(this.url + 'users/user/login', { username, password }).pipe(tap(res => {
             if (res.success) {
@@ -55,14 +41,6 @@ export class AuthService {
                 console.log(res.message);
             }
         }));
-    }
-    passwordTokengen(email: string) {
-        return this.http.get<Message>(this.url + 'users/user/forget/' + email);
-    }
-    forgetPassword(password: string, token: string) {
-        const encodedName = encodeURIComponent(password);
-        console.log('encodedName--' + encodedName);
-        return this.http.get<Message>(this.url + 'users/user/changepassword/' + encodedName + '/' + token);
     }
     checkPackageValidity(email: string) {
         return this.http.get<Message>(this.url + 'users/user/package/valid/' + email);

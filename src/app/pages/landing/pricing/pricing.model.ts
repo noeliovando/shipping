@@ -1,7 +1,7 @@
 import { Feature } from '../features/feature.model';
 
 export class Package {
-    id: number;
+    packageid: number;
     packagecode: string;
     shortname: string;
     description: string;

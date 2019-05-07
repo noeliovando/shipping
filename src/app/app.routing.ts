@@ -14,9 +14,9 @@ import {PurchaseinformationComponent} from './purchaseinformation/purchaseinform
 
 export const routes: Routes = [
     {
-        path: '',
+        path: 'admin',
         component: PagesComponent, children: [
-            { path: '', loadChildren: './pages/dashboard/dashboard.module#DashboardModule', data: { breadcrumb: 'Dashboard' } },
+            { path: 'dashboard', loadChildren: './pages/dashboard/dashboard.module#DashboardModule', data: { breadcrumb: 'Dashboard' } },
             { path: 'users', loadChildren: './pages/users/users.module#UsersModule', data: { breadcrumb: 'Users' } },
             { path: 'dynamic-menu', loadChildren: './pages/dynamic-menu/dynamic-menu.module#DynamicMenuModule', data: { breadcrumb: 'Dynamic Menu' }  },
             { path: 'ui', loadChildren: './pages/ui/ui.module#UiModule', data: { breadcrumb: 'UI' } },
@@ -34,7 +34,7 @@ export const routes: Routes = [
             { path: 'search/:name', component: SearchComponent, data: { breadcrumb: 'Search' } }
         ]
     },
-    { path: 'landing', loadChildren: './pages/landing/landing.module#LandingModule' },
+    { path: '', loadChildren: './pages/landing/landing.module#LandingModule' },
     { path: 'login', loadChildren: './pages/login/login.module#LoginModule' },
     { path: 'register', loadChildren: './pages/register/register.module#RegisterModule' },
     { path: 'error', component: ErrorComponent, data: { breadcrumb: 'Error' } },

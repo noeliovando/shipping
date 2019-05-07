@@ -1,22 +1,35 @@
 <div fxlayout="row" class="mt-2 pt-3" fxflexalign="center center">
   <div fxLayout="column" fxLayoutAlign="center center" class="title-section p-2 mb-2">
-    <mat-icon class="mat-icon-xlg accent-color">lock</mat-icon><h1>Secure Chechkout</h1>
-    <p class="secondary-text-color">Please verify the information and select one payment method</p>
+    <mat-icon class="mat-icon-xlg accent-color">shopping_cart</mat-icon><h1>Confirmation</h1>
+    <p class="secondary-text-color">Please verify the information and click to continue</p>
   </div>
   <div fxLayout="row" fxLayoutAlign="center center">
     <div fxFlex="100">
       <div fxLayout="row" fxLayoutAlign="center center">
-        <div fxFlex="100" fxFlex.gt-md="50" fxFlex.md="33.3" fxFlex.sm="50" class="p-0">
-          <mat-card>
-            <mat-card-header fxLayoutAlign="center">
-              <mat-card-subtitle><h2>Simple form field</h2></mat-card-subtitle>
+        <div fxFlex="100" fxFlex.gt-md="25">
+          <mat-card fxFlexAlign="center center">
+            <mat-card-header fxFlexAlign="center center">
+              <mat-card-subtitle><h2>Buying {{package.shortname}} Package</h2></mat-card-subtitle>
             </mat-card-header>
-            <mat-card-content fxLayout="column" fxLayoutAlign="center">
-              <mat-form-field>
-                <textarea matInput placeholder="Textarea"></textarea>
-              </mat-form-field>
+            <mat-card-content fxFlexAlign="center center">
+              <h4>Features included</h4>
+              <mat-divider></mat-divider>
+                <div *ngFor="let feature of package.features">
+                  <p><mat-icon class="mat-icon-sm" color="primary">done</mat-icon>  {{feature.feature}}</p>
+                </div>
+              <mat-divider></mat-divider>
+              <p> <br></p>
+              <strong>Total Billied  ${{package.baseprice}}</strong>
             </mat-card-content>
+
           </mat-card>
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <div fxFlex="100">
+              <div fxLayout="row" fxLayoutAlign="center center">
+                <button mat-raised-button color="accent" class="mt-3" (click)="onSelect()">Confirm</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -8,12 +8,14 @@
         </div> 
         <div fxLayout="row" fxLayoutAlign="center center">
             <div fxShow="false" fxShow.gt-sm>
-                <button *ngFor="let item of menuItems" mat-button [ngx-scroll-to]="item" [ngx-scroll-to-duration]="300" class="mx-1">{{item}}</button> 
+                <button *ngFor="let item of menuItems" mat-button [ngx-scroll-to]="item" [ngx-scroll-to-duration]="300" class="mx-1">{{item}}</button>
+                <button *ngIf="!_authservice.isLoggined" mat-button class="mx-1" routerLink="/login">Login</button>
+                <app-user-menu *ngIf="_authservice.isLoggined"></app-user-menu>
             </div>
             <button mat-icon-button (click)="sidenav.toggle()" fxHide="false" fxHide.gt-sm class="mx-3">
                 <mat-icon>menu</mat-icon>
             </button> 
-            <a mat-raised-button color="primary" routerLink="/register" target="blank">Suscription</a>
+            <a mat-raised-button *ngIf="!_authservice.isLoggined" color="primary" routerLink="/register" target="blank">Suscription</a>
         </div>
     </div>
 </mat-toolbar> 
